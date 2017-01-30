@@ -12,6 +12,7 @@ class Display
     @board.board.each do |row|
       puts row.join('  ')
     end
+    nil
   end
 
 end
