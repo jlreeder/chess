@@ -14,7 +14,7 @@ class Board
 
   def setup_board
     not_empty_rows = [0,1, 6,7]
-    board.map.with_index do |row, index|
+    board.map!.with_index do |row, index|
       if not_empty_rows.include?(index)
         row.map { Piece.new }
       else
@@ -29,8 +29,12 @@ class Board
     self[start_pos] = nil
   end
 
-  def valid_move?(pos)
+  def on_board?(pos)
     pos.all? { |coord| coord.between?(0,7) }
+  end
+
+  def piece_there?(pos)
+    !self[pos].nil?
   end
 
   def[](pos)
