@@ -22,4 +22,25 @@ class Board
       end
     end
   end
+
+  def move_piece(start_pos, end_pos)
+    moving_piece = self[start_pos]
+    self[end_pos] = moving_piece
+    self[start_pos] = nil
+  end
+
+  def valid_move?(pos)
+    pos.all? { |coord| coord.between?(0,7) }
+  end
+
+  def[](pos)
+    row, col = pos
+    @board[row][col]
+  end
+
+  def []=(pos, piece)
+    row, col = pos
+    @board[row][col] = piece
+  end
+
 end
