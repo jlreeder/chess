@@ -83,7 +83,11 @@ class Cursor
 
     when :left || :right || :up || :down
       @board.update_pos(key)
+
+    when :ctrl_c
+      Process.exit(0)
     end
+
   end
 
   def update_pos(diff)
