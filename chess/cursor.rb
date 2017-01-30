@@ -93,6 +93,10 @@ class Cursor
   def update_pos(diff)
     row_diff, col_diff = MOVES[diff]
     row, col = @cursor_pos
-    [row + row_diff, col + col_diff]
+    new_pos = [row + row_diff, col + col_diff]
+
+    return unless @board.valid_move?(@cursor_pos, new_pos)
+
+    @cursor_pos = new_pos
   end
 end
