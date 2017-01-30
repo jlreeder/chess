@@ -13,10 +13,13 @@ class Board
   end
 
   def setup_board
-    not_empty_rows = [0,1 6,7]
-    board.length.times do |row|
-      if not_empty_rows.include?(row)
-        row.map { |el| Piece.new}
+    not_empty_rows = [0,1, 6,7]
+    board.map.with_index do |row, index|
+      if not_empty_rows.include?(index)
+        row.map { Piece.new }
+      else
+        row
       end
+    end
   end
 end
