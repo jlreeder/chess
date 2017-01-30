@@ -29,6 +29,11 @@ class Board
     self[start_pos] = nil
   end
 
+  def valid_move?(start_pos, end_pos)
+    return false unless on_board?(start_pos) && on_board?(end_pos)
+    piece_there?(start_pos) && !piece_there?(end_pos)
+  end
+
   def on_board?(pos)
     pos.all? { |coord| coord.between?(0,7) }
   end
