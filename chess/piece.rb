@@ -27,7 +27,7 @@ class Rook < Piece
 
   protected
 
-  attr_reader :move_dirs
+  attr_reader :move_dirs, :board
 
 end
 
@@ -41,7 +41,7 @@ class Bishop < Piece
 
   protected
 
-  attr_reader :move_dirs
+  attr_reader :move_dirs, :board
 
 end
 
@@ -55,7 +55,7 @@ class Queen < Piece
 
   protected
 
-  attr_reader :move_dirs
+  attr_reader :move_dirs, :board
 
 end
 
@@ -69,7 +69,7 @@ class King < Piece
 
   protected
 
-  attr_reader :move_dirs
+  attr_reader :move_dirs, :board
 
 end
 
@@ -84,6 +84,6 @@ class Knight < Piece
 
   protected
 
-  attr_reader :move_dirs
+  attr_reader :move_dirs, :board
 
 end

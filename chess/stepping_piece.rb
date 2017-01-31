@@ -10,7 +10,7 @@ module SteppingPiece
       curr_row, curr_col = current_pos
 
       possible_move = [curr_row + row_mod, curr_col + col_mod]
-      next unless on_board?(possible_move)
+      next unless board.on_board?(possible_move)
 
       move_list << possible_move
     end
@@ -18,7 +18,4 @@ module SteppingPiece
     move_list
   end
 
-  def on_board?(pos)
-    pos.all? { |coord| coord.between?(0,7) }
-  end
 end
