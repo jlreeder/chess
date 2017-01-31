@@ -1,5 +1,5 @@
 class Piece
-  attr_reader :value
+  attr_reader :value, :current_pos
 
   def initialize(current_pos)
     @value = "p"
@@ -15,7 +15,8 @@ class Rook < Piece
   include SlidingPiece
 
   def initialize(current_pos)
-    @move_dirs = [[0, 1], [1, 1], [0, -1], [-1, -1]]
+    super
+    @move_dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]
   end
 
   protected
