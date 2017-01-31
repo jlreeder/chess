@@ -2,6 +2,14 @@ require_relative 'piece'
 
 class Board
 
+  PIECES = {
+    Rook => [0, 7],
+    Knight => [1, 6],
+    Bishop => [2, 5],
+    Queen => [3],
+    King => [4]
+  }.freeze
+
   attr_accessor :board
 
   def initialize(board = Board.empty_board)
@@ -13,16 +21,21 @@ class Board
   end
 
   def setup_board
-    not_empty_rows = [0,1, 6,7]
-    board.map!.with_index do |els, row|
-      if not_empty_rows.include?(row)
-        els.map.with_index do |el, col|
-          Piece.new([row, col])
+
+    [0, 7].each do |row|
+
+      PIECES.each do |type, cols|
+
+        cols.each do |col|
+          pos = [row, col]
+          self[pos] = type.new(pos, self)
         end
-      else
-        els
+
       end
+
     end
+
+    nil
   end
 
   def move_piece(start_pos, end_pos)
