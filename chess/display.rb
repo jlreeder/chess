@@ -11,11 +11,8 @@ class Display
   def render
     @board.board.each_with_index do |els, row|
       display_row = els.map.with_index do |el, col|
-        if el.is_a?(Piece)
-          @cursor.cursor_pos == [row, col] ? el.value.red : el.value
-        else
-          @cursor.cursor_pos == [row, col] ? '-'.red : '-'
-        end
+        current = el.is_a?(Piece) ? el.value : '-'
+        @cursor.cursor_pos == [row, col] ? current.red : current
       end
       puts display_row.join(" ")
     end
