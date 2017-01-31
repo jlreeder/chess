@@ -10,7 +10,10 @@ class Display
 
   def render
     @board.board.each do |row|
-      puts row.join('  ')
+      display_row = row.map do |el|
+        el.is_a?(Piece) ? el.value : "-"
+      end
+      puts display_row.join(" ")
     end
     nil
   end
