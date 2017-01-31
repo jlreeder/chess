@@ -58,7 +58,7 @@ class Board
   end
 
   def piece_there?(pos)
-    !self[pos].nil?
+    !self[pos].is_a?(NullPiece)
   end
 
   def[](pos)
