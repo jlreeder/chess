@@ -1,5 +1,5 @@
 require_relative 'piece'
-
+require 'byebug'
 class Board
 
   PIECES = {
@@ -8,6 +8,11 @@ class Board
     Bishop => [2, 5],
     Queen => [3],
     King => [4]
+  }.freeze
+
+  SIDES = {
+    top: 0,
+    bottom: 7,
   }.freeze
 
   attr_accessor :board
@@ -21,14 +26,13 @@ class Board
   end
 
   def setup_board
-
-    [0, 7].each do |row|
+    SIDES.each do |side, row|
 
       PIECES.each do |type, cols|
 
         cols.each do |col|
           pos = [row, col]
-          self[pos] = type.new(pos, self)
+          self[pos] = type.new(pos, self, side)
         end
 
       end
