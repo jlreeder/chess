@@ -71,3 +71,18 @@ class King < Piece
   attr_reader :move_dirs
 
 end
+
+class Knight < Piece
+  include SteppingPiece
+
+  def initialize(current_pos)
+    super
+    @move_dirs = [[1, 2], [2, 1], [-1, 2], [-2, 1],
+                  [1, -2], [2, -1], [-1, -2], [-2, -1]]
+  end
+
+  protected
+
+  attr_reader :move_dirs
+
+end
