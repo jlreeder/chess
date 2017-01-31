@@ -9,6 +9,14 @@ class Manager < Employee
     @employees = []
   end
 
+  def add_employee(subordinate)
+    employees << subordinate
+
+    # generally the return value for adding
+    # something to something else is the thing added
+    subordinate
+  end
+
   def bonus(multiplier)
     total = 0
     employees.each do |employee|
