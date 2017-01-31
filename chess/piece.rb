@@ -24,3 +24,17 @@ class Rook < Piece
   attr_reader :move_dirs
 
 end
+
+class Bishop < Piece
+  include SlidingPiece
+
+  def initialize(current_pos)
+    super
+    @move_dirs = [[1, 1], [1, -1], [-1, -1], [-1, 1]]
+  end
+
+  protected
+
+  attr_reader :move_dirs
+
+end
