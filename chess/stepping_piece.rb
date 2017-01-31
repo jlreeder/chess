@@ -11,8 +11,6 @@ module SteppingPiece
       next unless on_board?(possible_move)
 
       move_list << possible_move
-      end
-
     end
 
     move_list
