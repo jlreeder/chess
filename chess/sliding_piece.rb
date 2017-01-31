@@ -5,16 +5,17 @@ module SlidingPiece
     move_list = []
 
     move_dirs.each do |coords|
-      curr_row, curr_col = current_pos
       row_mod, col_mod = coords
-      possible_move = [curr_row + row_mod, curr_col + col_mod]
-      while on_board?(possible_move)
-        move_list << possible_move
+      curr_row, curr_col = current_pos
 
-        new_row, new_col = possible_move
-        row_mod, col_mod = coords
-        possible_move = [new_row + row_mod, new_col + col_mod]
+      loop do
+        possible_move = [curr_row + row_mod, curr_col + col_mod]
+        break unless on_board?(possible_move)
+
+        move_list << possible_move
+        curr_row, curr_col = possible_move
       end
+
     end
 
     move_list
