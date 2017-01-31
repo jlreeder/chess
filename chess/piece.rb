@@ -15,6 +15,11 @@ class Piece
 
   def moves
   end
+
+  protected
+
+  attr_reader :move_dirs, :board
+
 end
 
 class Rook < Piece
@@ -24,10 +29,6 @@ class Rook < Piece
     super
     @move_dirs = MOVE_DIRS[:straight]
   end
-
-  protected
-
-  attr_reader :move_dirs, :board
 
 end
 
@@ -39,10 +40,6 @@ class Bishop < Piece
     @move_dirs = MOVE_DIRS[:diagonal]
   end
 
-  protected
-
-  attr_reader :move_dirs, :board
-
 end
 
 class Queen < Piece
@@ -52,10 +49,6 @@ class Queen < Piece
     super
     @move_dirs = MOVE_DIRS[:straight] + MOVE_DIRS[:diagonal]
   end
-
-  protected
-
-  attr_reader :move_dirs, :board
 
 end
 
@@ -67,10 +60,6 @@ class King < Piece
     @move_dirs = MOVE_DIRS[:straight] + MOVE_DIRS[:diagonal]
   end
 
-  protected
-
-  attr_reader :move_dirs, :board
-
 end
 
 class Knight < Piece
@@ -81,9 +70,5 @@ class Knight < Piece
     @move_dirs = [[1, 2], [2, 1], [-1, 2], [-2, 1],
                   [1, -2], [2, -1], [-1, -2], [-2, -1]]
   end
-
-  protected
-
-  attr_reader :move_dirs, :board
 
 end
