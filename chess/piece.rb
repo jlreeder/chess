@@ -54,3 +54,20 @@ class Queen < Piece
   attr_reader :move_dirs
 
 end
+
+class King < Piece
+  include SlidingPiece
+
+  def initialize(current_pos)
+    super
+    @move_dirs = [
+                  [1, 1], [1, -1], [-1, -1], [-1, 1], # diagonal
+                  [0, 1], [1,  0], [ 0, -1], [-1, 0]  # straight
+    ]
+  end
+
+  protected
+
+  attr_reader :move_dirs
+
+end
