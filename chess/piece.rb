@@ -13,10 +13,12 @@ end
 class Rook < Piece
   include SlidingPiece
 
+  def initialize
+    @move_dirs = [[0, 1], [1, 1], [0, -1], [-1, -1]]
+  end
+
   protected
 
-  def move_dirs
-    [[0, 1], [1, 1], [0, -1], [-1, -1]]
-  end
+  attr_reader :move_dirs
 
 end
