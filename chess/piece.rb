@@ -73,6 +73,15 @@ class Knight < Piece
 
 end
 
+class Pawn < Piece
+
+  def initialize(current_pos, board, side)
+    super
+    @move_dirs = []
+  end
+
+end
+
 class NullPiece < Piece
   include Singleton
 
