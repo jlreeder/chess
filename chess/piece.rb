@@ -19,7 +19,7 @@ class Rook < Piece
 
   def initialize(current_pos)
     super
-    @move_dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+    @move_dirs = MOVE_DIRS[:straight]
   end
 
   protected
@@ -33,7 +33,7 @@ class Bishop < Piece
 
   def initialize(current_pos)
     super
-    @move_dirs = [[1, 1], [1, -1], [-1, -1], [-1, 1]]
+    @move_dirs = MOVE_DIRS[:diagonal]
   end
 
   protected
@@ -47,10 +47,7 @@ class Queen < Piece
 
   def initialize(current_pos)
     super
-    @move_dirs = [
-                  [1, 1], [1, -1], [-1, -1], [-1, 1], # diagonal
-                  [0, 1], [1,  0], [ 0, -1], [-1, 0]  # straight
-    ]
+    @move_dirs = MOVE_DIRS[:straight] + MOVE_DIRS[:diagonal]
   end
 
   protected
@@ -64,10 +61,7 @@ class King < Piece
 
   def initialize(current_pos)
     super
-    @move_dirs = [
-                  [1, 1], [1, -1], [-1, -1], [-1, 1], # diagonal
-                  [0, 1], [1,  0], [ 0, -1], [-1, 0]  # straight
-    ]
+    @move_dirs = MOVE_DIRS[:straight] + MOVE_DIRS[:diagonal]
   end
 
   protected
