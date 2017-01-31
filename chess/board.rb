@@ -26,20 +26,7 @@ class Board
   end
 
   def setup_board
-    SIDES.each do |side, row|
-
-      PIECES.each do |type, cols|
-
-        cols.each do |col|
-          pos = [row, col]
-          self[pos] = type.new(pos, self, side)
-        end
-
-      end
-
-    end
-
-    nil
+    place_non_pawns
   end
 
   def move_piece(start_pos, end_pos)
@@ -54,7 +41,7 @@ class Board
   end
 
   def on_board?(pos)
-    pos.all? { |coord| coord.between?(0,7) }
+    pos.all? { |coord| coord.between?(0, 7) }
   end
 
   def piece_there?(pos)
@@ -69,6 +56,25 @@ class Board
   def []=(pos, piece)
     row, col = pos
     @board[row][col] = piece
+  end
+
+  private
+
+  def place_non_pawns
+    SIDES.each do |side, row|
+
+      PIECES.each do |type, cols|
+
+        cols.each do |col|
+          pos = [row, col]
+          self[pos] = type.new(pos, self, side)
+        end
+
+      end
+
+    end
+
+    nil
   end
 
 end
