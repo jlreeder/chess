@@ -10,7 +10,8 @@ module SteppingPiece
       curr_row, curr_col = current_pos
 
       possible_move = [curr_row + row_mod, curr_col + col_mod]
-      next unless board.on_board?(possible_move)
+      next unless board.on_board?(possible_move) &&
+        !board.piece_there?(possible_move)
 
       move_list << possible_move
     end
