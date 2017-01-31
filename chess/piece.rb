@@ -72,3 +72,13 @@ class Knight < Piece
   end
 
 end
+
+class NullPiece < Piece
+  include Singleton
+
+  def initialize
+    @symbol = ""
+    @color = :black
+  end
+
+end

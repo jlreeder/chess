@@ -17,7 +17,7 @@ class Board
   end
 
   def self.empty_board
-    Array.new(8) { Array.new(8) }
+    Array.new(8) { Array.new(8) { NullPiece.instance } }
   end
 
   def setup_board
