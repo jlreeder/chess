@@ -1,4 +1,8 @@
 class Piece
+
+  MOVE_DIRS = { diagonal: [[1, 1], [1, -1], [-1, -1], [-1, 1]],
+                straight: [[0, 1], [1,  0], [ 0, -1], [-1, 0]] }
+
   attr_reader :value, :current_pos
 
   def initialize(current_pos)
