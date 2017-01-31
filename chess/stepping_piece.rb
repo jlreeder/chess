@@ -1,3 +1,5 @@
+require "byebug"
+
 module SteppingPiece
 
   def moves

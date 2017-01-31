@@ -1,3 +1,5 @@
+require "byebug"
+
 class Piece
 
   MOVE_DIRS = { diagonal: [[1, 1], [1, -1], [-1, -1], [-1, 1]],
@@ -57,7 +59,7 @@ class Queen < Piece
 end
 
 class King < Piece
-  include SlidingPiece
+  include SteppingPiece
 
   def initialize(current_pos)
     super
