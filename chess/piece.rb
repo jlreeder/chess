@@ -7,9 +7,10 @@ class Piece
 
   attr_reader :value, :current_pos
 
-  def initialize(current_pos)
+  def initialize(current_pos, board)
     @value = "p"
     @current_pos = current_pos
+    @board = board
   end
 
   def moves
@@ -19,7 +20,7 @@ end
 class Rook < Piece
   include SlidingPiece
 
-  def initialize(current_pos)
+  def initialize(current_pos, board)
     super
     @move_dirs = MOVE_DIRS[:straight]
   end
@@ -33,7 +34,7 @@ end
 class Bishop < Piece
   include SlidingPiece
 
-  def initialize(current_pos)
+  def initialize(current_pos, board)
     super
     @move_dirs = MOVE_DIRS[:diagonal]
   end
@@ -47,7 +48,7 @@ end
 class Queen < Piece
   include SlidingPiece
 
-  def initialize(current_pos)
+  def initialize(current_pos, board)
     super
     @move_dirs = MOVE_DIRS[:straight] + MOVE_DIRS[:diagonal]
   end
@@ -61,7 +62,7 @@ end
 class King < Piece
   include SteppingPiece
 
-  def initialize(current_pos)
+  def initialize(current_pos, board)
     super
     @move_dirs = MOVE_DIRS[:straight] + MOVE_DIRS[:diagonal]
   end
@@ -75,7 +76,7 @@ end
 class Knight < Piece
   include SteppingPiece
 
-  def initialize(current_pos)
+  def initialize(current_pos, board)
     super
     @move_dirs = [[1, 2], [2, 1], [-1, 2], [-2, 1],
                   [1, -2], [2, -1], [-1, -2], [-2, -1]]
