@@ -74,10 +74,11 @@ class Knight < Piece
 end
 
 class Pawn < Piece
+  include SteppingPiece
 
   def initialize(current_pos, board, side)
     super
-    @move_dirs = []
+    @move_dirs = side == :top ? [[1, 0]] : [[-1, 0]]
   end
 
 end
