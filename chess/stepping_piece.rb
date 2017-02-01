@@ -11,7 +11,7 @@ module SteppingPiece
 
       possible_move = [curr_row + row_mod, curr_col + col_mod]
       next unless board.on_board?(possible_move) &&
-        !board.piece_there?(possible_move)
+        board.side_at(possible_move) != side
 
       move_list << possible_move
     end
