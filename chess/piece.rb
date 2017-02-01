@@ -28,6 +28,7 @@ class Rook < Piece
   def initialize(current_pos, board, side)
     super
     @move_dirs = MOVE_DIRS[:straight]
+    @symbol = :r
   end
 
 end
@@ -38,6 +39,7 @@ class Bishop < Piece
   def initialize(current_pos, board, side)
     super
     @move_dirs = MOVE_DIRS[:diagonal]
+    @symbol = :b
   end
 
 end
@@ -48,6 +50,7 @@ class Queen < Piece
   def initialize(current_pos, board, side)
     super
     @move_dirs = MOVE_DIRS[:straight] + MOVE_DIRS[:diagonal]
+    @symbol = :q
   end
 
 end
@@ -58,6 +61,7 @@ class King < Piece
   def initialize(current_pos, board, side)
     super
     @move_dirs = MOVE_DIRS[:straight] + MOVE_DIRS[:diagonal]
+    @symbol = :k
   end
 
 end
@@ -69,6 +73,7 @@ class Knight < Piece
     super
     @move_dirs = [[1, 2], [2, 1], [-1, 2], [-2, 1],
                   [1, -2], [2, -1], [-1, -2], [-2, -1]]
+    @symbol = :n
   end
 
 end
@@ -79,6 +84,7 @@ class Pawn < Piece
   def initialize(current_pos, board, side)
     super
     @move_dirs = side == :top ? [[1, 0]] : [[-1, 0]]
+    @symbol = :p
   end
 
 end
@@ -87,7 +93,7 @@ class NullPiece < Piece
   include Singleton
 
   def initialize
-    @symbol = ""
+    @symbol = ' '
     @color = :black
   end
 
