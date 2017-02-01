@@ -17,6 +17,7 @@ class Piece
     moves.reject { |move| puts_into_check?(move) }
   end
 
+  #FIXME: doesn't work yet
   def puts_into_check?(move)
     # make move
     board[move] = self

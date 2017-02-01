@@ -67,10 +67,11 @@ class Board
     oppose.any? { |piece| piece.moves.include?(kingpos) }
   end
 
+  #FIXME: doesn't work yet
   def in_checkmate?(side)
     return false unless in_check?(side)
     pieces = same_pieces(side)
-    pieces.all? { |piece| piece.valid_moves(side).empty? }
+    pieces.all? { |piece| piece.valid_moves.empty? }
   end
 
   def opposing_pieces(side)
