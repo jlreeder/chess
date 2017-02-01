@@ -27,6 +27,9 @@ class Board
 
   def setup_board
     place_non_pawns
+    place_pawns
+
+    nil
   end
 
   def move_piece(start_pos, end_pos)
@@ -74,7 +77,17 @@ class Board
 
     end
 
-    nil
+  end
+
+  def place_pawns
+    SIDES.each do |side, row|
+      pawn_row = row + (side == :top ? 1 : -1)
+
+      (0..7).each do |col|
+        pos = pawn_row, col
+        self[pos] = Pawn.new(pos, self, side)
+      end
+    end
   end
 
 end
