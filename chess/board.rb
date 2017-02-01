@@ -61,7 +61,28 @@ class Board
     @board[row][col] = piece
   end
 
+  def in_check?(side)
+    oppose = opposing_pieces(side)
+    kingpos = king_pos(side)
+    oppose.any? { |piece| piece.moves.include?(kingpos) }
+  end
+
+  def opposing_pieces(side)
+    @board.flatten.select do |piece|
+      piece.side != side && !piece.is_a?(NullPiece)
+    end
+  end
+
+  def king_pos(side)
+    king = @board.flatten.find do |piece|
+      piece.side == side && piece.is_a?(King)
+    end
+
+    king.current_pos
+  end
+
   private
+
 
   def place_non_pawns
     SIDES.each do |side, row|
