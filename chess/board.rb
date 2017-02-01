@@ -81,6 +81,12 @@ class Board
     king.current_pos
   end
 
+  def side_at(pos)
+    piece = self[pos]
+    return nil if piece.is_a?(NullPiece)
+    piece.side
+  end
+
   private
 
 
