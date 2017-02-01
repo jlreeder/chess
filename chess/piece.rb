@@ -13,6 +13,10 @@ class Piece
     @side = side
   end
 
+  def valid_moves
+    moves.reject { |move| puts_into_check?(move) }
+  end
+
   def moves
   end
 

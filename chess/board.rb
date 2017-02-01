@@ -67,9 +67,21 @@ class Board
     oppose.any? { |piece| piece.moves.include?(kingpos) }
   end
 
+  def in_checkmate?(side)
+    return false unless in_check?(side)
+    pieces = same_pieces(side)
+    pieces.all? { |piece| piece.valid_moves(side).empty? }
+  end
+
   def opposing_pieces(side)
     @board.flatten.select do |piece|
       piece.side != side && !piece.is_a?(NullPiece)
+    end
+  end
+
+  def same_pieces(side)
+    @board.flatten.select do |piece|
+      piece.side == side && !piece.is_a?(NullPiece)
     end
   end
 
